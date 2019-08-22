@@ -18,10 +18,10 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
 
-  onSelect(hero:Hero): void {
+ /*  onSelect(hero:Hero): void {
     this.selectedHero = hero;
     console.log(hero);
-  }
+  } */ //not usefull anymore
 
   /* getHeroes(): void {
     this.heroes = this.heroService.getHeroes();
