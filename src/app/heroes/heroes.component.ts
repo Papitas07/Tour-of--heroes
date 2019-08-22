@@ -10,7 +10,7 @@ import { HeroService } from '../hero.service';
 export class HeroesComponent implements OnInit {
   
   selectedHero: Hero;
-  heroes = Hero[];
+  heroes: Hero[] = []; //un tableau de hero = Array<Hero> = []
 
   constructor(private heroService: HeroService) { }
 
@@ -20,10 +20,17 @@ export class HeroesComponent implements OnInit {
 
   onSelect(hero:Hero): void {
     this.selectedHero = hero;
+    console.log(hero);
   }
 
-  getHeroes(): void {
+  /* getHeroes(): void {
     this.heroes = this.heroService.getHeroes();
+    //Dans HeroesComponent > acces a la methode heroService > dans HeroService > acces a la methode getHeroes
+  } */
+
+  getHeroes(): void {
+    this.heroService.getHeroes()
+    .subscribe(heroes => this.heroes = heroes);
   }
 }
 
